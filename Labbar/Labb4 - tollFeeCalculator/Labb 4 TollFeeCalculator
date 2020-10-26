@@ -1,0 +1,107 @@
+package comcun.func;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import java.util.Locale;
+
+public class TollFeeCalculator {
+        public static int getTotalFeeCost(LocalDateTime[] dates) throws ParseException {
+        int totalFee = 0;
+        int dayFee;
+        int loopIndex = 0;
+        LocalDateTime intervalStart = dates[0];
+
+        for(LocalDateTime date: dates) {
+
+            if (date.getDayOfWeek().toString().contains("SATURDAY") || date.getDayOfWeek().toString().contains("SUNDAY")) {
+                System.out.println("Free Pass " + date.getDayOfWeek() + " " +  date.toString());
+            } else {
+                long diffInMinutes = intervalStart.until(date, ChronoUnit.MINUTES);
+                if (diffInMinutes > 60) {
+                    dayFee = getTollFeePerPassing(date);
+                    System.out.println("FR:" + loopIndex + "-->"+ date.getDayOfWeek().toString()+ " (" + dayFee + " kr) " +date.toString());
+                    totalFee += dayFee;
+                    intervalStart = date;
+                } else {
+                    int firstFee=0;
+                    int currentFee=0;
+                    if (loopIndex > 0) {
+                        currentFee = getTollFeePerPassing(date);
+                        firstFee = getTollFeePerPassing(dates[loopIndex - 1]);
+                        if (currentFee > firstFee) {
+                            System.out.println("Adjust Price difference --> Current total -> " +totalFee);
+                            totalFee -= firstFee;
+                            totalFee += currentFee;
+                            System.out.println("First Fee: "+ firstFee + " Current Fee:" + currentFee + " Current TotalFee = " + totalFee);
+                        }
+                    }
+
+                    System.out.println("FR:" + loopIndex + "-->"+ date.getDayOfWeek().toString() + " in 60 min " + date.toString());
+                }
+            }
+
+            loopIndex++;
+        }
+        if (totalFee > 60) { // set limit
+            System.out.println("Adjusting Total fee limit from " + totalFee);
+                    totalFee = 60;
+        }
+        return totalFee;
+    }
+
+    // Tider Belopp
+    //06:00–06:29 8 kr
+    //06:30–06:59 13 kr
+    //07:00–07:59 18 kr
+    //08:00–08:29 13 kr
+    //08:30–14:59 8 kr
+    //15:00–15:29 13 kr
+    //15:30–16:59 18 kr
+    //17:00–17:59 13 kr
+    //18:00–18:29 8 kr
+    //18:30–05:59 0 kr
+
+    public static int getTollFeePerPassing(LocalDateTime date) {
+        if (isTollFreeDate(date)) return 0;
+        int hour = date.getHour();
+        int minute = date.getMinute();
+        if (hour == 6 && minute >= 0 && minute <= 29) {
+            return 8;
+        }else if (hour == 6 && minute >= 30 && minute <= 59) {
+            return 13;
+        }
+        else if (hour == 7 && minute >= 0 && minute <= 59) {
+            return 18;
+        }
+        else if (hour == 8 && minute >= 0 && minute <= 29) {
+            return 13;
+        }
+        else if (hour >= 8 && hour <= 14) { // this case more readable . else can work with only minute <= 59 too. bcos above return between 8 <> 29
+            if (minute >= 30 && minute <= 59) {
+                return 8;
+            } else { // if not in 30 ~59
+                return 8;
+            }
+
+        } else if (hour == 15 && minute >= 0 && minute <= 29) {
+            return 13;
+        } else if (hour == 15 && minute >= 0 || hour == 16 && minute <= 59) {
+            return 18;
+        } else if (hour == 17 && minute >= 0 && minute <= 59) {
+            return 13;
+        } else if (hour == 18 && minute >= 0 && minute <= 29) {
+            {
+                return 8;
+            }
+        } else {
+            return 0;
+        }
+    }
+    public static boolean isTollFreeDate(LocalDateTime date) {
+        return date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7 || date.getMonth().getValue() == 7;
+    }
+
+}
