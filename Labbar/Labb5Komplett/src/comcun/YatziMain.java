@@ -67,7 +67,7 @@ class YatziMain {
         }
     }
 
-    public boolean checkIfYatzi(Dice[] ds) {
+    static boolean checkIfYatzi(Dice[] ds) {
         boolean yatzi = true;
         for (int i = 1; i < 5; i++) {
             if (ds[i].value != ds[i - 1].value) {
