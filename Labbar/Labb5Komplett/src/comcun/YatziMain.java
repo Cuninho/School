@@ -4,37 +4,36 @@ import java.util.Scanner;
 
 class YatziMain {
 
-    public Dice[] die = new Dice[5];
-    public boolean gameIsOn = true;
-    public int turn = 0;
-    Scanner sc = new Scanner(System.in);
+    private Die[] die = new Die[5];
+    private int turn = 0;
+    private Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         new YatziMain();
     }
 
-    YatziMain() {
-        dices();
+
+    private YatziMain() {
+        dice();
         playGame();
     }
 
-    private void dices() {
+    private void dice() {
         for (int i = 0; i < 5; i++) {
-            die[i] = new Dice();
+            die[i] = new Die();
         }
     }
 
     private void playGame() {
         System.out.println("Welcome to Yatzi!");
-        while (gameIsOn & turn < 3) {
+        while (turn < 3) {
             System.out.println("Starting turn " + (turn + 1) + " of 3, rolling dice");
-            rollingDices();
+            rollingDice();
 
             if (checkIfYatzi(die)) {
-                System.out.println("You got YATZI! in " + die[0].value + "'s");
+                System.out.println("You got YATZI! in " + die[0].getValue() + "'s");
                 return;
-            }
-            if (turn != 2) {
+            } else if (turn != 2) {
                 System.out.println("Want to throw again? (y for yes, anything else for no)");
             } else {
                 gameOver();
@@ -44,9 +43,9 @@ class YatziMain {
         }
     }
 
-    private void rollingDices() {
+    private void rollingDice() {
         for (int i = 0; i < die.length; i++) {
-            die[i].DiceRoll();
+            die[i].DieRoll();
             System.out.println(i + ": " + die[i].getString());
         }
     }
@@ -55,7 +54,7 @@ class YatziMain {
         if (sc.next().equals("y")) {
             turn++;
         } else {
-            gameIsOn = false;
+            System.exit(0);
         }
     }
 
@@ -67,10 +66,10 @@ class YatziMain {
         }
     }
 
-    static boolean checkIfYatzi(Dice[] ds) {
+    static boolean checkIfYatzi(Die[] ds) {
         boolean yatzi = true;
         for (int i = 1; i < 5; i++) {
-            if (ds[i].value != ds[i - 1].value) {
+            if (ds[i].getValue() != ds[i - 1].getValue()) {
                 yatzi = false;
                 break;
             }
