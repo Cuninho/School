@@ -3,19 +3,12 @@ package comcun;
 import java.util.Scanner;
 
 class YatziMain {
-
     private Die[] die = new Die[5];
     private int turn = 0;
     private Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        new YatziMain();
-    }
+    YatziMain() {
 
-
-    private YatziMain() {
-        dice();
-        playGame();
     }
 
     private void dice() {
@@ -32,12 +25,12 @@ class YatziMain {
 
             if (checkIfYatzi(die)) {
                 System.out.println("You got YATZI! in " + die[0].getValue() + "'s");
-                return;
+                System.exit(0);
             } else if (turn != 2) {
                 System.out.println("Want to throw again? (y for yes, anything else for no)");
             } else {
                 gameOver();
-                return;
+                System.exit(0);
             }
             keepPlaying();
         }
@@ -66,7 +59,7 @@ class YatziMain {
         }
     }
 
-    static boolean checkIfYatzi(Die[] ds) {
+    boolean checkIfYatzi(Die[] ds) {
         boolean yatzi = true;
         for (int i = 1; i < 5; i++) {
             if (ds[i].getValue() != ds[i - 1].getValue()) {
@@ -75,6 +68,12 @@ class YatziMain {
             }
         }
         return yatzi;
+    }
+
+    public static void main(String[] args) {
+        YatziMain main = new YatziMain();
+        main.dice();
+        main.playGame();
     }
 }
 
