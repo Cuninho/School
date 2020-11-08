@@ -12,7 +12,7 @@ public class HangmanWordList implements WordList {
 
         HangmanWordList(){
             try {
-                Scanner sc = new Scanner(new File("C:\\Users\\Cuney\\School\\Labb6HangMan\\src\\comcun\\wordlist.txt"));
+                Scanner sc = new Scanner(new File("src\\comcun\\wordlist.txt"));
                 while(sc.hasNextLine()) {
                     words.add(sc.nextLine());
                 }
