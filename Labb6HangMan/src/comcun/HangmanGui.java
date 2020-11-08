@@ -149,3 +149,5 @@ public class HangmanGui {
         hangman.startGame();
     }
 }
+
+// Soleiman och Cuneyt
