@@ -51,32 +51,14 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.HangmanGuiTest.numberOfGuesses">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HangmanGuiTest.numbersOfGuesses">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HangmanGuiTest.GetCorrectWordFromWordList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Labb6HangMan" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="comcun.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="comcun" />
-      <option name="MAIN_CLASS_NAME" value="comcun.HangmanGuiTest" />
-      <option name="METHOD_NAME" value="GetCorrectWordFromWordList" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,6 +74,38 @@
       <option name="PACKAGE_NAME" value="comcun" />
       <option name="MAIN_CLASS_NAME" value="comcun.HangmanGuiTest" />
       <option name="METHOD_NAME" value="getCorrectWordFromWordList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HangmanGuiTest.getTotalWords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labb6HangMan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="comcun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="comcun" />
+      <option name="MAIN_CLASS_NAME" value="comcun.HangmanGuiTest" />
+      <option name="METHOD_NAME" value="getTotalWords" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HangmanGuiTest.getWordFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labb6HangMan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="comcun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="comcun" />
+      <option name="MAIN_CLASS_NAME" value="comcun.HangmanGuiTest" />
+      <option name="METHOD_NAME" value="getWordFromList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,7 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HangmanGuiTest.testHowManyWordsAndLetterHaveMaximum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HangmanGuiTest.numbersOfGuesses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Labb6HangMan" />
       <extension name="coverage">
         <pattern>
@@ -123,42 +137,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="comcun" />
       <option name="MAIN_CLASS_NAME" value="comcun.HangmanGuiTest" />
-      <option name="METHOD_NAME" value="testHowManyWordsAndLetterHaveMaximum" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HangmanGuiTest.testHowManyWordsAndLettersHaveMaximum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Labb6HangMan" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="comcun.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="comcun" />
-      <option name="MAIN_CLASS_NAME" value="comcun.HangmanGuiTest" />
-      <option name="METHOD_NAME" value="testHowManyWordsAndLettersHaveMaximum" />
+      <option name="METHOD_NAME" value="numbersOfGuesses" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.HangmanGuiTest.testHowManyWordsAndLettersHaveMaximum" />
       <item itemvalue="JUnit.HangmanGuiTest.getCorrectWordFromWordList" />
       <item itemvalue="JUnit.HangmanGuiTest.numberOfGuesses" />
-      <item itemvalue="JUnit.HangmanGuiTest.GetCorrectWordFromWordList" />
-      <item itemvalue="JUnit.HangmanGuiTest.testHowManyWordsAndLetterHaveMaximum" />
+      <item itemvalue="JUnit.HangmanGuiTest.getTotalWords" />
+      <item itemvalue="JUnit.HangmanGuiTest.getWordFromList" />
+      <item itemvalue="JUnit.HangmanGuiTest.numbersOfGuesses" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HangmanGuiTest.numbersOfGuesses" />
+        <item itemvalue="JUnit.HangmanGuiTest.getWordFromList" />
+        <item itemvalue="JUnit.HangmanGuiTest.getTotalWords" />
         <item itemvalue="JUnit.HangmanGuiTest.numberOfGuesses" />
         <item itemvalue="JUnit.HangmanGuiTest.getCorrectWordFromWordList" />
-        <item itemvalue="JUnit.HangmanGuiTest.testHowManyWordsAndLetterHaveMaximum" />
-        <item itemvalue="JUnit.HangmanGuiTest.testHowManyWordsAndLettersHaveMaximum" />
-        <item itemvalue="JUnit.HangmanGuiTest.GetCorrectWordFromWordList" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604849129760</updated>
       <workItem from="1604849130845" duration="10821000" />
-      <workItem from="1604866903002" duration="308000" />
+      <workItem from="1604866903002" duration="1004000" />
     </task>
     <servers />
   </component>
@@ -203,22 +201,22 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604858942484" />
-    <state width="1877" height="292" key="GridCell.Tab.0.bottom" timestamp="1604867242301">
+    <state width="1877" height="292" key="GridCell.Tab.0.bottom" timestamp="1604867907917">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867242301" />
-    <state width="1877" height="292" key="GridCell.Tab.0.center" timestamp="1604867242301">
+    <state width="1877" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867907917" />
+    <state width="1877" height="292" key="GridCell.Tab.0.center" timestamp="1604867907917">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867242301" />
-    <state width="1877" height="292" key="GridCell.Tab.0.left" timestamp="1604867242301">
+    <state width="1877" height="292" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867907917" />
+    <state width="1877" height="292" key="GridCell.Tab.0.left" timestamp="1604867907917">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867242301" />
-    <state width="1877" height="292" key="GridCell.Tab.0.right" timestamp="1604867242301">
+    <state width="1877" height="292" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867907917" />
+    <state width="1877" height="292" key="GridCell.Tab.0.right" timestamp="1604867907917">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867242301" />
+    <state width="1877" height="292" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604867907917" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1604860137866">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
