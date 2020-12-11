@@ -1,38 +1,26 @@
 package comcun;
 
-
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Mqtt {
+public class Temp {
+
+    Temp() throws InterruptedException {
+        sendTemp();
+    }
 
     Timer timer;
-    String topic = "topic/Jun8";
-    //String content = "@2020-12-04 15:25:20, temperature, 20";
-    int qos = 2;
-    String broker = "tcp://broker.hivemq.com:1883";
-    String clientId = "JavaSample";
+    String topic        = "topic/Jun8";
+    //String content      = printTemp();
+    int qos             = 2;
+    String broker       = "tcp://broker.hivemq.com:1883";
+    String clientId     = "JavaSample";
     MemoryPersistence persistence = new MemoryPersistence();
 
-        Mqtt() {
-
-            messages();
-            test(10);
-        }
-
-         String getContent() {
-            LocalDateTime date = LocalDateTime.now();
-            return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss ")) + "temp " + (int)(Math.random() * (25 - 15) + 15) + " °C";
-        }
-
-
-    private void messages() {
+    void sendTemp() {
         try {
             MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
             MqttConnectOptions connOpts = new MqttConnectOptions();
@@ -40,49 +28,54 @@ public class Mqtt {
             System.out.println("Connecting to broker: " + broker);
             sampleClient.connect(connOpts);
             System.out.println("Connected");
-            System.out.println("Publishing message: " + getContent());
-            MqttMessage message = new MqttMessage(getContent().getBytes());
+            System.out.println("Publishing message: " + printTemp());
+            MqttMessage message = new MqttMessage(printTemp().getBytes());
             message.setQos(qos);
             sampleClient.publish(topic, message);
-            System.out.println("Message published");
-
-            FileWriter fw = new FileWriter("C:\\Users\\Cuney\\School\\MQTT\\src\\comcun\\temp.txt", true);
-            fw.write("\n" + getContent());
-            fw.close();
-
-            sampleClient.subscribe(topic, new MqttPostPropertyMessageListener());
-        } catch (MqttException | IOException me) {
+            sampleClient.subscribe(topic, new Mqtt.MqttPostPropertyMessageListener());
+            //System.out.println("Message published");
+            //sampleClient.disconnect();
+            //System.out.println("Disconnected");
+            //System.exit(0);
+        } catch (MqttException me) {
             me.printStackTrace();
         }
     }
 
-
     void test(int seconds) {
         timer = new Timer();
-        timer.schedule(new RemindTask(), seconds*1000);
+        timer.schedule(new Temp.RemindTask(), seconds*1000);
     }
 
-     class RemindTask extends TimerTask {
+
+    class RemindTask extends TimerTask {
         public void run() {
-            messages();
+            sendTemp();
             timer.cancel(); //Terminate the timer thread
             test(10);
         }
     }
 
 
-        static class MqttPostPropertyMessageListener implements IMqttMessageListener {
-            @Override
-            public void messageArrived(String var1, MqttMessage var2) throws Exception {
-                System.out.println(var1 + ": " + var2.toString());
 
-            }
+    public String printTemp() {
+        while (true) {
+            int t = ((int) (Math.random() * (25 - 15) + 15));
+            System.out.println(t + " °C");
         }
+    }
 
-        public static void main(String[] args) throws IOException, InterruptedException {
-            new Mqtt();
-            //Temp t = new Temp();
-            //t.printDates();
+    class MqttPostPropertyMessageListener implements IMqttMessageListener {
+        @Override
+        public void messageArrived(String var1, MqttMessage var2) throws Exception {
+            System.out.println(var1 + ": " + var2.toString());
 
         }
     }
+
+
+    public static void main(String[] args) throws InterruptedException {
+        new Temp();
+    }
+
+}
